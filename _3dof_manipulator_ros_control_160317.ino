@@ -19,8 +19,6 @@
 ros::NodeHandle  nh;
 
 Servo servo1, servo2, servo3;
-//int pot1=9 , pot2= 10, pot3=11; //pot pins for each servo
-//int val; //for analog read from pots
 
 void servo_cb1( const std_msgs::UInt16& cmd_msg){
   int target_angle = cmd_msg.data;
@@ -156,35 +154,6 @@ void setup(){
 }
 
 void loop(){
-/*  
-//set angular pos from pot1 for servo1 control
-//  val = analogRead(pot1);  // reads the value of the potentiometer (value between 0 and 1023) 
-  
-  //Serial.println("pot1 reading:"); //debug
-  //Serial.println(val) ; //debug 
-  val = map(val, 0, 1023, 0,179 );     // scale it to use it with the servo (value between 0 and 180) 
-  servo1.write(val);                  // sets the servo position according to the scaled value 
-  delay(5);                           // waits for the servo to get there 
-
-//set angular pos from pot1 for servo2 control  
-//  val = analogRead(pot2);            // reads the value of the potentiometer (value between 0 and 1023) 
-//  Serial.println("pot2 reading:"); //debug
-//  Serial.println(val) ; //debug 
-  
-  val = map(val, 0, 1023, 0, 179);     // scale it to use it with the servo (value between 0 and 180) 
-  servo2.write(val);                  // sets the servo position according to the scaled value 
-  delay(5);                           // waits for the servo to get there 
-
-//set angular pos from pot1 for servo3 control  
-  val = analogRead(pot3);  // reads the value of the potentiometer (value between 0 and 1023) 
-  
-  Serial.println("pot3 reading:"); //debug
-  Serial.println(val) ; //debug 
-  
-  val = map(val, 0, 1023, 0, 179);     // scale it to use it with the servo (value between 0 and 180) 
-  servo3.write(val);                  // sets the servo position according to the scaled value 
-  delay(5);                           // waits for the servo to get there 
-*/
 //for ros control
 nh.spinOnce();
 delay(1);
